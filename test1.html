@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+</head>
+<body>
+<script src="js/test1.js"></script>
+
+
+<a-scene main>
+    <!--script : reading world position or rotation of the camera-->
+    <!-- <script>AFRAME.registerComponent('rotation-reader', {
+            tick: (function () {
+              var position = new THREE.Vector3();
+              var rotation = new THREE.Euler();
+          
+              return function () {
+                this.el.object3D.getWorldPosition(position);
+                this.el.object3D.getWorldRotation(rotation);
+                // position and rotation now contain vector and euler in world space.
+              };
+            })
+          });</script> -->
+    
+    <a-entity id="viewpoint" position ="0 0 0" rotation="0 90 0">
+        <a-camera id="camera" position="0 1.6 0" fov="90">
+                <a-cursor id="cursor"></a-cursor>
+            </a-camera>
+    </a-entity>
+    
+    <a-assets>
+        <video id="view1_v" crossorigin="anonymous" muted></video>
+        <video id="view2_v" crossorigin="anonymous" muted></video>
+        <video id="view3_v" crossorigin="anonymous" muted></video>
+        <video id="view4_v" crossorigin="anonymous" muted></video>
+        <video id="view5_v" crossorigin="anonymous" muted></video>
+        <video id="init" crossorigin="anonymous"></video>
+    </a-assets>
+    <a-sky id="background" src="image/background.png"></a-sky>
+
+    <a-videosphere id="vr_view" src="#init"></a-videosphere>
+
+    <a-box id="stage" depth="2" height="0.3" width="1" position="0 0 0" color="black"></a-box>
+
+    <a-entity id="view_sphere" rotation="0 180 0"> 
+      <a-sphere id="view1" position="2.29 0 -2.59" src="#view1_v" radius="0.13"></a-sphere>
+      <a-sphere id="view2" position="3.59 0 0" src="#view2_v" radius="0.13"></a-sphere>
+      <a-sphere id="view3" position="2.29 0 2.59" src="#view3_v" radius="0.13"></a-sphere>
+      <a-sphere id="view4" position="5.11 0 -1.54" src="#view4_v" radius="0.13"></a-sphere>
+      <a-sphere id="view5" position="5.11 0 1.54" src="#view5_v" radius="0.13"></a-sphere>
+      <a-sphere id="view6" position="3.25 0 -1.5" radius="0.13" color="#E9967A"></a-sphere>
+      <a-sphere id="view7" position="3.25 0 1.5" radius="0.13" color="#C71585"></a-sphere>
+      <a-sphere id="view8" position="3.54 0 -4.04" radius="0.13" color="#FFFF00"></a-sphere>
+      <a-sphere id="view9" position="3.54 0 4.04" radius="0.13" color="#DC143C"></a-sphere>
+    </a-entity>
+    
+
+</a-scene>
+
+</body>
+</html>
